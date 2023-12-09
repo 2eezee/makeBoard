@@ -1,0 +1,28 @@
+<!--
+타임리프 문법
+th:text -> 태그 안에 데이터를 출력
+th:each -> 반복문
+th:each="${number:#number(시작번호, 끝번호)}" -> 시작 번호에서 끝번호까지 반복
+
+JPA Repository
+findBy(컬럼 이름) -> 컬럼에서 키워드를 넣어서 찾겠다 (정확하게 키워드 전부가 일치하는 데이터만 검색)
+findBy(컬럼 이름) Containing -> 컬럼에서 키워드가 포함된 것을 찾겠다 (키워드가 포함된 모든 데이터 검색)
+-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 상세 페이지</title>
+</head>
+<body>
+<h1 th:text="${board.title}">제목입니다</h1>
+
+<p th:text="${board.content}">내용이 들어갈 부분입니다</p>
+<a th:href="@{${board.filepath}}">다운받기</a>
+<a th:href="@{/board/modify/{id}(id = ${board.id})}">수정</a>
+<!--<a th:href="@{/board/delete(id=${board.id})}">글 삭제</a>-->
+
+</body>
+</html>
+
